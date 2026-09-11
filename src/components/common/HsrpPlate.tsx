@@ -44,7 +44,7 @@ export const HsrpPlate: React.FC<HsrpPlateProps> = ({
       {/* Authentic Blue Left IND Strip */}
       <div className="h-full bg-[#003893] px-1.5 flex flex-col items-center justify-center -ml-1.5 mr-2 text-white border-r border-slate-800/40">
         {/* Ashoka Chakra Hologram Symbol */}
-        <svg viewBox="0 0 24 24" className="w-2.5 h-2.5 text-cyan-300 animate-spin-slow">
+        <svg viewBox="0 0 24 24" className="w-2.5 h-2.5 text-sky-200 animate-spin-slow">
           <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" fill="none" />
           <circle cx="12" cy="12" r="2.5" fill="currentColor" />
           <path d="M 12 3 L 12 21 M 3 12 L 21 12 M 5.6 5.6 L 18.4 18.4 M 5.6 18.4 L 18.4 5.6" stroke="currentColor" strokeWidth="1" />

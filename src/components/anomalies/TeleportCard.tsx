@@ -103,20 +103,20 @@ export const TeleportCard: React.FC<TeleportCardProps> = ({
 
         {/* Node A to Node B Hop details */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2 border-t border-amber-500/20 font-mono text-xs">
-          <div className="p-2 rounded bg-slate-950/80 border border-slate-800">
-            <span className="text-[10px] text-slate-400">Origin Node (10:15 AM)</span>
-            <div className="text-slate-100 font-bold mt-0.5 truncate">{sighting1?.cameraName}</div>
-            <div className="text-cyan-400 text-[10px] mt-0.5">{sighting1?.cameraId}</div>
+          <div className="p-2 rounded bg-black border border-zinc-800">
+            <span className="text-[10px] text-zinc-400">Origin Node (10:15 AM)</span>
+            <div className="text-zinc-100 font-bold mt-0.5 truncate">{sighting1?.cameraName}</div>
+            <div className="text-zinc-400 text-[10px] mt-0.5">{sighting1?.cameraId}</div>
           </div>
 
-          <div className="p-2 rounded bg-slate-950/80 border border-slate-800">
-            <span className="text-[10px] text-slate-400">Destination Node (10:20 AM)</span>
-            <div className="text-slate-100 font-bold mt-0.5 truncate">{sighting2?.cameraName}</div>
-            <div className="text-cyan-400 text-[10px] mt-0.5">{sighting2?.cameraId}</div>
+          <div className="p-2 rounded bg-black border border-zinc-800">
+            <span className="text-[10px] text-zinc-400">Destination Node (10:20 AM)</span>
+            <div className="text-zinc-100 font-bold mt-0.5 truncate">{sighting2?.cameraName}</div>
+            <div className="text-zinc-400 text-[10px] mt-0.5">{sighting2?.cameraId}</div>
           </div>
 
-          <div className="p-2 rounded bg-slate-950/80 border border-slate-800 text-center">
-            <span className="text-[10px] text-slate-400">Delta Parameters</span>
+          <div className="p-2 rounded bg-black border border-zinc-800 text-center">
+            <span className="text-[10px] text-zinc-400">Delta Parameters</span>
             <div className="text-yellow-400 font-bold mt-0.5">
               {incident.distanceKm} km in {incident.timeDeltaMin} mins
             </div>
@@ -126,24 +126,24 @@ export const TeleportCard: React.FC<TeleportCardProps> = ({
       </div>
 
       {/* Action Footer */}
-      <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-800">
-        <div className="text-xs font-mono text-slate-400">
+      <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-zinc-800">
+        <div className="text-xs font-mono text-zinc-400">
           Target Plate: <span className="text-yellow-400 font-bold">{incident.plateNumber}</span> • Patrol:{" "}
-          <span className="text-cyan-300">{incident.assignedUnit || "Expressway Flying Squad"}</span>
+          <span className="text-zinc-200 font-medium">{incident.assignedUnit || "Expressway Flying Squad"}</span>
         </div>
 
         <div className="flex items-center gap-2">
           <button
             onClick={() => onOpenReport(incident)}
-            className="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 text-xs font-mono border border-slate-700 transition-colors flex items-center gap-1.5"
+            className="px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-200 text-xs font-mono border border-zinc-800 transition-colors flex items-center gap-1.5"
           >
-            <FileText className="w-3.5 h-3.5 text-cyan-400" />
+            <FileText className="w-3.5 h-3.5 text-white" />
             <span>Generate Dossier</span>
           </button>
 
           <button
             onClick={() => trackVehicle(incident.plateNumber)}
-            className="px-3 py-1.5 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 text-xs font-mono border border-cyan-500/40 transition-colors flex items-center gap-1.5"
+            className="px-3 py-1.5 rounded-lg bg-white hover:bg-zinc-200 text-zinc-950 font-bold text-xs font-mono transition-colors flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,255,255,0.15)]"
           >
             <span>Plot Trajectory Jump</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -155,7 +155,7 @@ export const TeleportCard: React.FC<TeleportCardProps> = ({
             className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${
               acknowledged
                 ? "bg-emerald-600 text-white cursor-default"
-                : "bg-amber-600 hover:bg-amber-500 text-slate-950 font-black shadow-[0_0_15px_rgba(245,158,11,0.3)]"
+                : "bg-zinc-200 hover:bg-white text-zinc-950 font-black"
             }`}
           >
             {acknowledged ? "ACKNOWLEDGED ✓" : "ACKNOWLEDGE ALERT"}

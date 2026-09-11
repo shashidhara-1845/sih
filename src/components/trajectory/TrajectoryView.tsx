@@ -127,14 +127,14 @@ export const TrajectoryView: React.FC = () => {
             onSelectNode={(seq) => setSelectedNodeSeq(seq)}
           />
 
-          <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800 flex items-center justify-between text-xs font-mono text-slate-400">
+          <div className="p-3 rounded-lg bg-zinc-950/80 border border-zinc-800 flex items-center justify-between text-xs font-mono text-zinc-400">
             <div className="flex items-center gap-2">
-              <Navigation className="w-4 h-4 text-cyan-400" />
+              <Navigation className="w-4 h-4 text-white" />
               <span>
-                Surveillance Corridors: <span className="text-slate-200">Delhi-NCR Ring Road / DND Expressway</span>
+                Surveillance Corridors: <span className="text-zinc-200">Delhi-NCR Ring Road / DND Expressway</span>
               </span>
             </div>
-            <div className="text-cyan-400 font-semibold">
+            <div className="text-zinc-300 font-semibold">
               Live Path Interpolation: KALMAN FILTER ACTIVE
             </div>
           </div>

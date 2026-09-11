@@ -52,28 +52,28 @@ export const Header: React.FC = () => {
   }, []);
 
   return (
-    <header className="h-16 border-b border-white/[0.07] bg-[#050811]/90 backdrop-blur-xl px-5 flex items-center justify-between z-30 sticky top-0">
+    <header className="h-16 border-b border-white/[0.08] bg-black/95 backdrop-blur-xl px-5 flex items-center justify-between z-30 sticky top-0">
       {/* Left section: Identity & Status */}
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-3">
-          <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400">
+          <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-white/[0.08] border border-white/20 text-white">
             <Radio className="w-4 h-4 animate-pulse" />
-            <div className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+            <div className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-white animate-ping" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-mono font-black text-sm tracking-wider text-slate-100 uppercase">
+              <span className="font-mono font-black text-sm tracking-wider text-white uppercase">
                 SENTINEL // RE-ID
               </span>
-              <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
+              <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-white/[0.08] text-zinc-300 border border-white/15">
                 DEFENSE V3.4
               </span>
             </div>
-            <div className="text-[11px] text-slate-400 font-mono tracking-tight flex items-center gap-1.5">
+            <div className="text-[11px] text-zinc-400 font-mono tracking-tight flex items-center gap-1.5">
               <span>SMART INDIA HACKATHON</span>
-              <span className="text-slate-600">•</span>
-              <span className="text-emerald-400 flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-zinc-600">•</span>
+              <span className="text-zinc-200 flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                 12/12 CAMERAS ONLINE
               </span>
             </div>
@@ -82,12 +82,12 @@ export const Header: React.FC = () => {
       </div>
 
       {/* Middle section: Sleek Telemetry Indicators */}
-      <div className="hidden lg:flex items-center gap-6 px-4 py-1.5 rounded-lg bg-slate-900/40 border border-white/[0.06] backdrop-blur-md">
+      <div className="hidden lg:flex items-center gap-6 px-4 py-1.5 rounded-lg bg-zinc-950 border border-white/[0.08] backdrop-blur-md">
         <div className="flex items-center gap-2.5">
-          <Activity className="w-4 h-4 text-cyan-400" />
+          <Activity className="w-4 h-4 text-white" />
           <div className="flex flex-col">
-            <span className="text-[9px] font-mono uppercase text-slate-400">Total Passes Logged</span>
-            <span className="text-xs font-mono font-bold text-slate-100">
+            <span className="text-[9px] font-mono uppercase text-zinc-400">Total Passes Logged</span>
+            <span className="text-xs font-mono font-bold text-white">
               {totalSightingsCount.toLocaleString()}
             </span>
           </div>
@@ -97,13 +97,13 @@ export const Header: React.FC = () => {
 
         <div className="flex items-center gap-2.5">
           <ShieldAlert
-            className={`w-4 h-4 ${criticalAlertsCount > 0 ? "text-rose-400 animate-pulse" : "text-slate-400"}`}
+            className={`w-4 h-4 ${criticalAlertsCount > 0 ? "text-rose-400 animate-pulse" : "text-zinc-400"}`}
           />
           <div className="flex flex-col">
-            <span className="text-[9px] font-mono uppercase text-slate-400">Active Threat Level</span>
+            <span className="text-[9px] font-mono uppercase text-zinc-400">Active Threat Level</span>
             <span
               className={`text-xs font-mono font-bold ${
-                criticalAlertsCount > 0 ? "text-rose-400" : "text-emerald-400"
+                criticalAlertsCount > 0 ? "text-rose-400" : "text-zinc-200"
               }`}
             >
               {criticalAlertsCount > 0 ? `${criticalAlertsCount} HIGH-SEVERITY FLAGS` : "CONDITION NORMAL"}
@@ -117,17 +117,17 @@ export const Header: React.FC = () => {
         {/* L1 Hot Cache Button */}
         <button
           onClick={() => setIsHotCacheDrawerOpen(true)}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-mono font-bold transition-all shadow-[0_0_12px_rgba(6,182,212,0.1)]"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.08] hover:bg-white/[0.15] text-zinc-100 border border-white/20 text-xs font-mono font-bold transition-all shadow-[0_0_15px_rgba(255,255,255,0.06)]"
           title="Open In-Memory Hot Cache & Suspect Repository"
         >
-          <Database className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+          <Database className="w-3.5 h-3.5 text-white animate-pulse" />
           <span className="hidden sm:inline">L1 HOT CACHE</span>
         </button>
 
         {/* Live Clock */}
         <div className="hidden xl:flex flex-col text-right mr-1">
-          <span className="text-[9px] font-mono text-slate-400 uppercase">SYS TELEMETRY</span>
-          <span className="text-xs font-mono font-bold text-cyan-400">{timeStr || "10:24:00 IST"}</span>
+          <span className="text-[9px] font-mono text-zinc-400 uppercase">SYS TELEMETRY</span>
+          <span className="text-xs font-mono font-bold text-white">{timeStr || "10:24:00 IST"}</span>
         </div>
 
         {/* Audio Toggle */}
@@ -136,23 +136,23 @@ export const Header: React.FC = () => {
           title={soundEnabled ? "Mute Radar Pings" : "Unmute Radar Pings"}
           className={`p-2 rounded-lg border transition-colors ${
             soundEnabled
-              ? "bg-cyan-500/10 text-cyan-400 border-cyan-500/30 hover:bg-cyan-500/20"
-              : "bg-slate-900/60 text-slate-500 border-white/[0.06] hover:text-slate-300"
+              ? "bg-white/[0.08] text-white border-white/20 hover:bg-white/[0.15]"
+              : "bg-zinc-950 text-zinc-500 border-white/[0.06] hover:text-zinc-300"
           }`}
         >
           {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
         </button>
 
         {/* Simulation Speed Buttons */}
-        <div className="flex items-center bg-slate-900/60 border border-white/[0.07] rounded-lg p-0.5">
+        <div className="flex items-center bg-zinc-950 border border-white/[0.08] rounded-lg p-0.5">
           {[1, 2, 5].map((speed) => (
             <button
               key={speed}
               onClick={() => setSimulationSpeed(speed)}
               className={`px-2 py-1 text-[10px] font-mono font-bold rounded-md transition-colors ${
                 simulationSpeed === speed
-                  ? "bg-cyan-500 text-slate-950 font-black shadow-sm"
-                  : "text-slate-400 hover:text-slate-200"
+                  ? "bg-white text-black font-black shadow-sm"
+                  : "text-zinc-400 hover:text-zinc-200"
               }`}
             >
               {speed}x
@@ -165,8 +165,8 @@ export const Header: React.FC = () => {
           onClick={toggleSimulation}
           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all border shadow-sm ${
             isSimulating
-              ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/20"
-              : "bg-amber-500/10 text-amber-400 border-amber-500/30 hover:bg-amber-500/20"
+              ? "bg-white/[0.08] text-white border-white/20 hover:bg-white/[0.15]"
+              : "bg-zinc-900 text-zinc-400 border-zinc-700 hover:bg-zinc-800"
           }`}
         >
           {isSimulating ? (
@@ -191,28 +191,28 @@ export const Header: React.FC = () => {
             <span className="hidden md:inline">INJECT</span>
             <ChevronDown className="w-3 h-3 opacity-60" />
           </button>
-          <div className="absolute right-0 mt-1.5 w-56 bg-[#090e1c] border border-white/[0.1] rounded-xl shadow-2xl py-1.5 hidden group-hover:block z-50 backdrop-blur-xl">
-            <div className="px-3.5 py-1 text-[10px] font-mono text-slate-400 border-b border-white/[0.08] uppercase">
+          <div className="absolute right-0 mt-1.5 w-56 bg-zinc-950 border border-white/[0.12] rounded-xl shadow-2xl py-1.5 hidden group-hover:block z-50 backdrop-blur-xl">
+            <div className="px-3.5 py-1 text-[10px] font-mono text-zinc-400 border-b border-white/[0.08] uppercase">
               Simulate Live Edge Incident
             </div>
             <button
               onClick={() => injectAnomaly("CLONED")}
-              className="w-full text-left px-3.5 py-2.5 text-xs font-mono text-slate-200 hover:bg-white/[0.05] flex items-center gap-2.5 transition-colors"
+              className="w-full text-left px-3.5 py-2.5 text-xs font-mono text-zinc-200 hover:bg-white/[0.06] flex items-center gap-2.5 transition-colors"
             >
               <AlertTriangle className="w-4 h-4 text-rose-400 shrink-0" />
               <div>
                 <div className="font-bold text-rose-300">Cloned Plate</div>
-                <div className="text-[10px] text-slate-400">Swift vs Scorpio duplicate</div>
+                <div className="text-[10px] text-zinc-400">Swift vs Scorpio duplicate</div>
               </div>
             </button>
             <button
               onClick={() => injectAnomaly("TELEPORT")}
-              className="w-full text-left px-3.5 py-2.5 text-xs font-mono text-slate-200 hover:bg-white/[0.05] flex items-center gap-2.5 transition-colors"
+              className="w-full text-left px-3.5 py-2.5 text-xs font-mono text-zinc-200 hover:bg-white/[0.06] flex items-center gap-2.5 transition-colors"
             >
               <Zap className="w-4 h-4 text-amber-400 shrink-0" />
               <div>
                 <div className="font-bold text-amber-300">Teleportation</div>
-                <div className="text-[10px] text-slate-400">52km in 5min (628 km/h)</div>
+                <div className="text-[10px] text-zinc-400">52km in 5min (628 km/h)</div>
               </div>
             </button>
           </div>

@@ -35,15 +35,15 @@ export const TrajectoryTimeline: React.FC<TrajectoryTimelineProps> = ({
         className={`p-4 rounded-xl border space-y-3 ${
           isAnomalous
             ? "bg-rose-950/20 border-rose-500/40 shadow-[0_0_20px_rgba(244,63,94,0.15)]"
-            : "bg-slate-900/80 border-cyan-500/30 shadow-[0_0_20px_rgba(6,182,212,0.1)]"
+            : "bg-zinc-950/80 border-zinc-800 shadow-[0_0_20px_rgba(255,255,255,0.05)]"
         }`}
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="font-mono text-base font-black text-yellow-400 bg-slate-950 px-2 py-0.5 rounded border border-yellow-500/40">
+            <span className="font-mono text-base font-black text-yellow-400 bg-black px-2 py-0.5 rounded border border-zinc-800">
               {trajectory.plateNumber}
             </span>
-            <span className="text-xs font-mono font-bold text-slate-300">
+            <span className="text-xs font-mono font-bold text-zinc-300">
               {summary.makeModel}
             </span>
           </div>
@@ -52,7 +52,7 @@ export const TrajectoryTimeline: React.FC<TrajectoryTimelineProps> = ({
             className={`px-2 py-1 rounded text-xs font-mono font-bold flex items-center gap-1 ${
               isAnomalous
                 ? "bg-rose-500/20 text-rose-300 border border-rose-500/40 animate-pulse"
-                : "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40"
+                : "bg-zinc-800 text-zinc-200 border border-zinc-700"
             }`}
           >
             {isAnomalous ? (
@@ -62,7 +62,7 @@ export const TrajectoryTimeline: React.FC<TrajectoryTimelineProps> = ({
               </>
             ) : (
               <>
-                <CheckCircle className="w-3.5 h-3.5" />
+                <CheckCircle className="w-3.5 h-3.5 text-zinc-300" />
                 <span>VALID ROUTE ({summary.kinematicValidityScore}%)</span>
               </>
             )}
@@ -70,20 +70,20 @@ export const TrajectoryTimeline: React.FC<TrajectoryTimelineProps> = ({
         </div>
 
         {/* Route Stats Grid */}
-        <div className="grid grid-cols-3 gap-2 pt-2 border-t border-slate-800 text-center font-mono">
-          <div className="p-2 rounded bg-slate-950/70 border border-slate-800/80">
-            <div className="text-[10px] text-slate-400 uppercase">Total Distance</div>
-            <div className="text-xs font-bold text-cyan-300 mt-0.5">{summary.totalDistanceKm} km</div>
+        <div className="grid grid-cols-3 gap-2 pt-2 border-t border-zinc-800 text-center font-mono">
+          <div className="p-2 rounded bg-black/60 border border-zinc-800/80">
+            <div className="text-[10px] text-zinc-400 uppercase">Total Distance</div>
+            <div className="text-xs font-bold text-white mt-0.5">{summary.totalDistanceKm} km</div>
           </div>
-          <div className="p-2 rounded bg-slate-950/70 border border-slate-800/80">
-            <div className="text-[10px] text-slate-400 uppercase">Transit Time</div>
-            <div className="text-xs font-bold text-cyan-300 mt-0.5">{summary.totalTimeMin} mins</div>
+          <div className="p-2 rounded bg-black/60 border border-zinc-800/80">
+            <div className="text-[10px] text-zinc-400 uppercase">Transit Time</div>
+            <div className="text-xs font-bold text-white mt-0.5">{summary.totalTimeMin} mins</div>
           </div>
-          <div className="p-2 rounded bg-slate-950/70 border border-slate-800/80">
-            <div className="text-[10px] text-slate-400 uppercase">Avg Velocity</div>
+          <div className="p-2 rounded bg-black/60 border border-zinc-800/80">
+            <div className="text-[10px] text-zinc-400 uppercase">Avg Velocity</div>
             <div
               className={`text-xs font-bold mt-0.5 ${
-                summary.avgSpeedKmh > 120 ? "text-rose-400" : "text-emerald-300"
+                summary.avgSpeedKmh > 120 ? "text-rose-400" : "text-zinc-200"
               }`}
             >
               {summary.avgSpeedKmh} km/h
@@ -93,16 +93,16 @@ export const TrajectoryTimeline: React.FC<TrajectoryTimelineProps> = ({
 
         {/* Predicted Next Sighting Node AI */}
         {summary.predictedNextNode && (
-          <div className="p-2.5 rounded-lg bg-cyan-950/30 border border-cyan-500/30 flex items-start gap-2.5 text-xs font-mono">
-            <Sparkles className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+          <div className="p-2.5 rounded-lg bg-zinc-900/60 border border-zinc-800 flex items-start gap-2.5 text-xs font-mono">
+            <Sparkles className="w-4 h-4 text-white shrink-0 mt-0.5" />
             <div>
-              <div className="text-cyan-300 font-bold flex items-center gap-1.5">
+              <div className="text-white font-bold flex items-center gap-1.5">
                 <span>AI TRAJECTORY PREDICTION:</span>
-                <span className="text-emerald-400">
+                <span className="text-zinc-300">
                   {summary.predictedNextNode.confidence}% Confidence
                 </span>
               </div>
-              <p className="text-slate-300 text-[11px] mt-0.5">
+              <p className="text-zinc-300 text-[11px] mt-0.5">
                 Next anticipated sighting:{" "}
                 <span className="text-yellow-300 font-semibold">
                   {summary.predictedNextNode.camera.name}
@@ -116,12 +116,12 @@ export const TrajectoryTimeline: React.FC<TrajectoryTimelineProps> = ({
 
       {/* Sequential Node Timeline */}
       <div className="space-y-2">
-        <h4 className="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider flex items-center justify-between">
+        <h4 className="text-xs font-mono font-bold text-zinc-300 uppercase tracking-wider flex items-center justify-between">
           <span>Sequential Camera Timeline ({points.length} Fixes)</span>
-          <span className="text-[10px] text-slate-400 font-normal">CHRONOLOGICAL ORDER</span>
+          <span className="text-[10px] text-zinc-500 font-normal">CHRONOLOGICAL ORDER</span>
         </h4>
 
-        <div className="relative pl-6 space-y-3 before:absolute before:left-2.5 before:top-3 before:bottom-3 before:w-0.5 before:bg-slate-800">
+        <div className="relative pl-6 space-y-3 before:absolute before:left-2.5 before:top-3 before:bottom-3 before:w-0.5 before:bg-zinc-800">
           {points.map((point) => {
             const isFirst = point.sequence === 1;
             const isLast = point.sequence === points.length;
@@ -135,8 +135,8 @@ export const TrajectoryTimeline: React.FC<TrajectoryTimelineProps> = ({
                   point.isImpossibleSpeed
                     ? "bg-rose-950/30 border-rose-500/60 shadow-[0_0_15px_rgba(244,63,94,0.2)]"
                     : isSelected
-                    ? "bg-cyan-950/40 border-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.2)]"
-                    : "bg-slate-900/60 border-slate-800 hover:border-slate-700"
+                    ? "bg-zinc-900 border-white shadow-[0_0_15px_rgba(255,255,255,0.12)]"
+                    : "bg-zinc-950/60 border-zinc-800/80 hover:border-zinc-700"
                 }`}
               >
                 {/* Node Sequence Circle on vertical track */}
@@ -145,8 +145,8 @@ export const TrajectoryTimeline: React.FC<TrajectoryTimelineProps> = ({
                     point.isImpossibleSpeed
                       ? "bg-rose-500 border-rose-300 text-white animate-pulse"
                       : isLast
-                      ? "bg-emerald-500 border-emerald-300 text-slate-950"
-                      : "bg-cyan-500 border-cyan-300 text-slate-950"
+                      ? "bg-zinc-200 border-white text-zinc-950"
+                      : "bg-white border-zinc-300 text-zinc-950"
                   }`}
                 >
                   {point.sequence}
@@ -156,14 +156,14 @@ export const TrajectoryTimeline: React.FC<TrajectoryTimelineProps> = ({
                 <div className="flex items-start justify-between gap-2">
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs font-bold text-cyan-300">
+                      <span className="font-mono text-xs font-bold text-white">
                         {point.camera.id}
                       </span>
-                      <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-slate-800 text-slate-400">
+                      <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-zinc-800 text-zinc-400">
                         {isFirst ? "ENTRY FIX" : isLast ? "LATEST FIX" : "INTERMEDIATE"}
                       </span>
                     </div>
-                    <div className="text-xs font-semibold text-slate-200 mt-0.5">
+                    <div className="text-xs font-semibold text-zinc-200 mt-0.5">
                       {point.camera.name}
                     </div>
                   </div>

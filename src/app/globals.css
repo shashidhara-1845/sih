@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #040711;
-  --surface: #080d1a;
-  --surface-raised: #0d1424;
-  --surface-overlay: #131c31;
-  --border-subtle: rgba(255, 255, 255, 0.07);
-  --border-accent: rgba(56, 189, 248, 0.3);
-  --cyan-glow: rgba(6, 182, 212, 0.2);
+  --background: #000000;
+  --surface: #09090b;
+  --surface-raised: #121215;
+  --surface-overlay: #18181b;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(255, 255, 255, 0.28);
+  --white-glow: rgba(255, 255, 255, 0.15);
 }
 
 body {
-  background-color: #040711;
-  color: #f1f5f9;
+  background-color: #000000;
+  color: #f4f4f5;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -33,41 +33,41 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #050811;
+  background: #050507;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #27272a;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0284c7;
+  background: #52525b;
 }
 
 /* Glassmorphism & Surface Utilities */
 .glass-panel {
-  background: rgba(11, 17, 32, 0.7);
+  background: rgba(9, 9, 11, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
 
 .glass-card {
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(8, 13, 26, 0.85) 100%);
+  background: linear-gradient(135deg, rgba(20, 20, 25, 0.6) 0%, rgba(9, 9, 12, 0.85) 100%);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.07);
   box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
 }
 
 .glass-card:hover {
-  border-color: rgba(56, 189, 248, 0.35);
-  box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 0 25px -5px rgba(255, 255, 255, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
 }
 
 .glass-card-danger {
-  background: linear-gradient(135deg, rgba(30, 10, 18, 0.7) 0%, rgba(15, 6, 12, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(35, 10, 15, 0.7) 0%, rgba(18, 5, 8, 0.9) 100%);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(244, 63, 94, 0.35);
   box-shadow: 0 0 30px -5px rgba(244, 63, 94, 0.18), inset 0 1px 0 0 rgba(244, 63, 94, 0.2);
@@ -77,8 +77,8 @@ body {
 .bg-cctv-grid {
   background-size: 24px 24px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
 .cctv-scanline {
@@ -93,19 +93,19 @@ body {
 }
 
 .cctv-vignette {
-  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.85);
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.9);
 }
 
 /* High-tech pulsing animations */
 @keyframes radar-glow {
   0% {
-    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
   }
   70% {
-    box-shadow: 0 0 0 10px rgba(6, 182, 212, 0);
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
   }
 }
 
@@ -115,19 +115,19 @@ body {
 
 /* Leaflet Container Overrides */
 .leaflet-container {
-  background-color: #040711 !important;
+  background-color: #000000 !important;
   font-family: inherit !important;
 }
 
 .leaflet-popup-content-wrapper {
-  background: rgba(11, 17, 32, 0.95) !important;
-  color: #f1f5f9 !important;
-  border: 1px solid rgba(56, 189, 248, 0.4) !important;
+  background: rgba(10, 10, 12, 0.95) !important;
+  color: #f4f4f5 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
   border-radius: 0.75rem !important;
   backdrop-filter: blur(12px) !important;
-  box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.9) !important;
+  box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.95) !important;
 }
 
 .leaflet-popup-tip {
-  background: #0b1120 !important;
+  background: #0a0a0c !important;
 }

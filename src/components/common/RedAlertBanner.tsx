@@ -60,27 +60,27 @@ export const RedAlertBanner: React.FC<RedAlertBannerProps> = ({
               <span
                 className={`px-2 py-0.5 rounded text-[10px] font-mono font-black uppercase tracking-wider ${
                   isRed
-                    ? "bg-rose-500 text-slate-950 shadow-[0_0_10px_rgba(244,63,94,0.8)]"
-                    : "bg-amber-500 text-slate-950"
+                    ? "bg-rose-500 text-zinc-950 shadow-[0_0_10px_rgba(244,63,94,0.8)]"
+                    : "bg-amber-500 text-zinc-950"
                 }`}
               >
                 HOT-CACHE MATCH: {suspect.threatLevel.replace("_", " ")}
               </span>
-              <span className="font-mono text-sm font-black text-yellow-400 bg-slate-950 px-2 py-0.5 rounded border border-yellow-500/40">
+              <span className="font-mono text-sm font-black text-yellow-400 bg-black px-2 py-0.5 rounded border border-zinc-800">
                 {suspect.plateNumber}
               </span>
-              <span className="text-[11px] font-mono text-slate-300 hidden sm:inline">
+              <span className="text-[11px] font-mono text-zinc-400 hidden sm:inline">
                 ({suspect.firNumber})
               </span>
             </div>
 
-            <div className="text-xs font-mono text-slate-200 font-semibold flex items-center gap-2">
+            <div className="text-xs font-mono text-zinc-200 font-semibold flex items-center gap-2">
               <span>{suspect.reason}</span>
             </div>
 
-            <div className="text-[11px] font-mono text-slate-400 flex items-center gap-2.5">
-              <span className="flex items-center gap-1 text-cyan-300">
-                <MapPin className="w-3 h-3" />
+            <div className="text-[11px] font-mono text-zinc-400 flex items-center gap-2.5">
+              <span className="flex items-center gap-1 text-zinc-200">
+                <MapPin className="w-3 h-3 text-white" />
                 {detection.cameraName} ({detection.cameraId})
               </span>
               <span>•</span>
@@ -103,7 +103,7 @@ export const RedAlertBanner: React.FC<RedAlertBannerProps> = ({
               trackVehicle(suspect.plateNumber);
               onDismiss();
             }}
-            className="px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-mono font-bold transition-all flex items-center gap-1.5 shadow-[0_0_15px_rgba(6,182,212,0.4)]"
+            className="px-4 py-2 rounded-lg bg-white hover:bg-zinc-200 text-zinc-950 text-xs font-mono font-bold transition-all flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,255,255,0.2)]"
           >
             <Compass className="w-4 h-4" />
             <span>Track on GIS Map</span>
@@ -111,7 +111,7 @@ export const RedAlertBanner: React.FC<RedAlertBannerProps> = ({
 
           <button
             onClick={onDismiss}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-colors"
+            className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800/80 transition-colors"
           >
             <X className="w-4 h-4" />
           </button>

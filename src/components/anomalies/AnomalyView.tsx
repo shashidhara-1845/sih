@@ -73,17 +73,17 @@ export const AnomalyView: React.FC = () => {
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex items-center justify-between bg-slate-900/60 border border-slate-800 rounded-lg px-4 py-2 text-xs font-mono">
+      <div className="flex items-center justify-between bg-zinc-950/80 border border-zinc-800 rounded-lg px-4 py-2 text-xs font-mono">
         <div className="flex items-center gap-2">
-          <span className="text-slate-400">Filter Incident Scope:</span>
+          <span className="text-zinc-400">Filter Incident Scope:</span>
           {["ALL", "CRITICAL", "ACTIVE", "RESOLVED"].map((f) => (
             <button
               key={f}
               onClick={() => setActiveFilter(f)}
               className={`px-2.5 py-1 rounded transition-colors ${
                 activeFilter === f
-                  ? "bg-slate-800 text-cyan-300 border border-slate-700 font-bold"
-                  : "text-slate-400 hover:text-slate-200"
+                  ? "bg-white text-zinc-950 border border-white font-bold shadow-sm"
+                  : "text-zinc-400 hover:text-white"
               }`}
             >
               {f}
@@ -91,7 +91,7 @@ export const AnomalyView: React.FC = () => {
           ))}
         </div>
 
-        <div className="text-slate-400 hidden sm:block">
+        <div className="text-zinc-400 hidden sm:block">
           Active Surveillance Stream: <span className="text-emerald-400">CONNECTED</span>
         </div>
       </div>
@@ -99,10 +99,10 @@ export const AnomalyView: React.FC = () => {
       {/* Incidents Stack */}
       <div className="space-y-4">
         {filteredAnomalies.length === 0 ? (
-          <div className="p-12 text-center rounded-xl bg-slate-900/40 border border-slate-800 space-y-2">
+          <div className="p-12 text-center rounded-xl bg-zinc-950/40 border border-zinc-800 space-y-2">
             <CheckCircle2 className="w-8 h-8 text-emerald-500 mx-auto" />
-            <div className="text-sm font-mono text-slate-300 font-bold">All Incidents Clear</div>
-            <p className="text-xs text-slate-400 font-mono">
+            <div className="text-sm font-mono text-zinc-300 font-bold">All Incidents Clear</div>
+            <p className="text-xs text-zinc-400 font-mono">
               No anomalies matching the current filter state.
             </p>
           </div>
@@ -132,21 +132,21 @@ export const AnomalyView: React.FC = () => {
             return (
               <div
                 key={incident.id}
-                className="bg-slate-900/70 border border-slate-800 rounded-xl p-4 space-y-2"
+                className="bg-zinc-950/70 border border-zinc-800 rounded-xl p-4 space-y-2"
               >
-                <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                <div className="flex items-center justify-between border-b border-zinc-800 pb-2">
                   <div className="flex items-center gap-2">
-                    <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/40 text-[10px] font-mono font-bold">
+                    <span className="px-2 py-0.5 rounded bg-zinc-800 text-zinc-200 border border-zinc-700 text-[10px] font-mono font-bold">
                       SYSTEM RESOLVED
                     </span>
-                    <span className="text-xs font-mono font-bold text-slate-200">{incident.title}</span>
+                    <span className="text-xs font-mono font-bold text-zinc-200">{incident.title}</span>
                   </div>
-                  <span className="text-xs font-mono text-slate-400">{incident.timestamp}</span>
+                  <span className="text-xs font-mono text-zinc-400">{incident.timestamp}</span>
                 </div>
-                <p className="text-xs font-mono text-slate-300 leading-relaxed">{incident.details}</p>
-                <div className="pt-2 text-xs font-mono text-cyan-400 flex items-center justify-between">
-                  <span>Plate: {incident.plateNumber}</span>
-                  <span className="text-slate-400">Resolved by Multi-Modal Re-ID Engine</span>
+                <p className="text-xs font-mono text-zinc-300 leading-relaxed">{incident.details}</p>
+                <div className="pt-2 text-xs font-mono text-white flex items-center justify-between">
+                  <span>Plate: <span className="text-yellow-400 font-bold">{incident.plateNumber}</span></span>
+                  <span className="text-zinc-500">Resolved by Multi-Modal Re-ID Engine</span>
                 </div>
               </div>
             );

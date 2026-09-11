@@ -106,10 +106,10 @@ export const VehicleThumbnail: React.FC<VehicleThumbnailProps> = ({
 
   return (
     <div
-      className={`relative overflow-hidden rounded-lg bg-[#02050e] border border-white/[0.09] select-none ${className}`}
+      className={`relative overflow-hidden rounded-lg bg-black border border-zinc-800/80 select-none ${className}`}
     >
       {/* CCTV Lens Vignette & Realistic Asphalt Road Perspective */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#030712] via-[#091122] to-[#040817]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-950 to-black" />
       
       {/* Perspective Highway Lane Markings */}
       <div className="absolute inset-0 opacity-20 pointer-events-none overflow-hidden">
@@ -122,15 +122,15 @@ export const VehicleThumbnail: React.FC<VehicleThumbnailProps> = ({
       <div className="absolute inset-0 cctv-vignette pointer-events-none" />
 
       {/* AI Detection Crosshairs & Bounding Box */}
-      <div className="absolute inset-3 border border-cyan-500/40 rounded pointer-events-none transition-all duration-300">
+      <div className="absolute inset-3 border border-white/20 rounded pointer-events-none transition-all duration-300">
         {/* Precision Corner Reticles */}
-        <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-cyan-400" />
-        <div className="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-cyan-400" />
-        <div className="absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-cyan-400" />
-        <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-cyan-400" />
+        <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-white" />
+        <div className="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-white" />
+        <div className="absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-white" />
+        <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-white" />
 
         {/* AI Tag on top of bounding box */}
-        <div className="absolute -top-2.5 left-2 px-1.5 py-0.2 rounded bg-cyan-950/90 border border-cyan-500/60 text-[9px] font-mono text-cyan-300 font-bold tracking-tight">
+        <div className="absolute -top-2.5 left-2 px-1.5 py-0.2 rounded bg-zinc-950/95 border border-zinc-700 text-[9px] font-mono text-zinc-200 font-bold tracking-tight">
           AI FIX: {vehicleType} [98.2%]
         </div>
       </div>
@@ -140,8 +140,8 @@ export const VehicleThumbnail: React.FC<VehicleThumbnailProps> = ({
         <svg viewBox="0 0 280 130" className="w-full h-full">
           <defs>
             <linearGradient id="windshieldGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#0f172a" stopOpacity="0.95" />
+              <stop offset="0%" stopColor="#52525b" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#09090b" stopOpacity="0.95" />
             </linearGradient>
             <linearGradient id="headlightBeam" x1="1" y1="0" x2="0" y2="0">
               <stop offset="0%" stopColor="#fef08a" stopOpacity="0.6" />
@@ -165,21 +165,21 @@ export const VehicleThumbnail: React.FC<VehicleThumbnailProps> = ({
       {showOverlay && (
         <>
           {/* Top Telemetry */}
-          <div className="absolute top-1.5 left-2.5 flex items-center gap-2 text-[9px] font-mono text-cyan-300/90 font-medium">
+          <div className="absolute top-1.5 left-2.5 flex items-center gap-2 text-[9px] font-mono text-zinc-300 font-medium">
             <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
-            <span className="font-bold">{cameraId}</span>
-            <span className="text-slate-600">|</span>
-            <span className="text-slate-400">85mm f/1.4</span>
-            <span className="text-slate-600">|</span>
+            <span className="font-bold text-white">{cameraId}</span>
+            <span className="text-zinc-600">|</span>
+            <span className="text-zinc-400">85mm f/1.4</span>
+            <span className="text-zinc-600">|</span>
             <span className="text-emerald-400 font-bold">60 FPS</span>
           </div>
 
-          <div className="absolute top-1.5 right-2.5 text-[9px] font-mono text-slate-400 font-medium">
+          <div className="absolute top-1.5 right-2.5 text-[9px] font-mono text-zinc-400 font-medium">
             {timestamp}:24
           </div>
 
           {/* Bottom Coordinates & Optical Spec */}
-          <div className="absolute bottom-1.5 left-2.5 text-[8px] font-mono text-slate-400 opacity-75 hidden sm:block">
+          <div className="absolute bottom-1.5 left-2.5 text-[8px] font-mono text-zinc-500 hidden sm:block">
             LAT 28.5684° N • LNG 77.2144° E
           </div>
         </>

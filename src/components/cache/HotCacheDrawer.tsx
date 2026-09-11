@@ -94,24 +94,24 @@ export const HotCacheDrawer: React.FC<HotCacheDrawerProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-4xl bg-[#090e1c] border border-cyan-500/40 rounded-xl shadow-[0_0_50px_rgba(6,182,212,0.25)] overflow-hidden flex flex-col max-h-[92vh]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="relative w-full max-w-4xl bg-zinc-950 border border-zinc-800 rounded-xl shadow-[0_0_50px_rgba(255,255,255,0.06)] overflow-hidden flex flex-col max-h-[92vh]">
         {/* Header */}
-        <div className="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-900/90">
+        <div className="p-4 border-b border-zinc-800 flex items-center justify-between bg-zinc-900/60">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-lg bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">
+            <div className="p-2.5 rounded-lg bg-white/10 text-white border border-white/20">
               <Database className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="font-mono text-base font-bold text-slate-100 uppercase">
+                <h3 className="font-mono text-base font-bold text-white uppercase">
                   L1 HOT CACHE // SUSPECT RED ALERT REPOSITORY
                 </h3>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-500/40 font-bold">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-200 border border-zinc-700 font-bold">
                   RAM IN-MEMORY
                 </span>
               </div>
-              <p className="text-xs text-slate-400 font-mono mt-0.5">
+              <p className="text-xs text-zinc-400 font-mono mt-0.5">
                 Sub-millisecond O(1) hash lookup table for immediate threat interception
               </p>
             </div>
@@ -119,7 +119,7 @@ export const HotCacheDrawer: React.FC<HotCacheDrawerProps> = ({
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-colors"
+            className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -128,46 +128,46 @@ export const HotCacheDrawer: React.FC<HotCacheDrawerProps> = ({
         {/* Scrollable Content */}
         <div className="p-5 overflow-y-auto space-y-5">
           {/* Cache Telemetry Metrics Ribbon */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-950 p-3.5 rounded-xl border border-slate-800 font-mono">
-            <div className="p-2 rounded bg-slate-900/60 border border-slate-800/80 text-center">
-              <div className="text-[10px] text-slate-400 uppercase">Lookup Latency</div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-black p-3.5 rounded-xl border border-zinc-800 font-mono">
+            <div className="p-2 rounded bg-zinc-900/50 border border-zinc-800/80 text-center">
+              <div className="text-[10px] text-zinc-400 uppercase">Lookup Latency</div>
               <div className="text-base font-bold text-emerald-400 mt-0.5">
                 {metrics.avgLatencyMs} ms
               </div>
-              <div className="text-[9px] text-slate-500">O(1) Memory Time</div>
+              <div className="text-[9px] text-zinc-500">O(1) Memory Time</div>
             </div>
 
-            <div className="p-2 rounded bg-slate-900/60 border border-slate-800/80 text-center">
-              <div className="text-[10px] text-slate-400 uppercase">Cache Hit Ratio</div>
-              <div className="text-base font-bold text-cyan-400 mt-0.5">
+            <div className="p-2 rounded bg-zinc-900/50 border border-zinc-800/80 text-center">
+              <div className="text-[10px] text-zinc-400 uppercase">Cache Hit Ratio</div>
+              <div className="text-base font-bold text-white mt-0.5">
                 {metrics.hitRatio}%
               </div>
-              <div className="text-[9px] text-slate-500">Fast-Path Intercepts</div>
+              <div className="text-[9px] text-zinc-500">Fast-Path Intercepts</div>
             </div>
 
-            <div className="p-2 rounded bg-slate-900/60 border border-slate-800/80 text-center">
-              <div className="text-[10px] text-slate-400 uppercase">Cached Suspects</div>
+            <div className="p-2 rounded bg-zinc-900/50 border border-zinc-800/80 text-center">
+              <div className="text-[10px] text-zinc-400 uppercase">Cached Suspects</div>
               <div className="text-base font-bold text-yellow-400 mt-0.5">
                 {suspects.length} Targets
               </div>
-              <div className="text-[9px] text-slate-500">Hot in RAM</div>
+              <div className="text-[9px] text-zinc-500">Hot in RAM</div>
             </div>
 
-            <div className="p-2 rounded bg-slate-900/60 border border-slate-800/80 text-center">
-              <div className="text-[10px] text-slate-400 uppercase">Eviction Policy</div>
-              <div className="text-xs font-bold text-slate-200 mt-1">
+            <div className="p-2 rounded bg-zinc-900/50 border border-zinc-800/80 text-center">
+              <div className="text-[10px] text-zinc-400 uppercase">Eviction Policy</div>
+              <div className="text-xs font-bold text-zinc-200 mt-1">
                 SLIDING 30M LRU
               </div>
-              <div className="text-[9px] text-slate-500">Auto-Garbage Collected</div>
+              <div className="text-[9px] text-zinc-500">Auto-Garbage Collected</div>
             </div>
           </div>
 
           {/* Form: Hot-Load Suspect Car */}
-          <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800 space-y-3">
+          <div className="p-4 rounded-xl bg-zinc-900/30 border border-zinc-800 space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Plus className="w-4 h-4 text-cyan-400" />
-                <h4 className="text-xs font-mono font-bold text-slate-200 uppercase tracking-wider">
+                <Plus className="w-4 h-4 text-white" />
+                <h4 className="text-xs font-mono font-bold text-zinc-200 uppercase tracking-wider">
                   Hot-Load New Suspect Car into Active Cache
                 </h4>
               </div>
@@ -181,7 +181,7 @@ export const HotCacheDrawer: React.FC<HotCacheDrawerProps> = ({
             <form onSubmit={handleAddSuspect} className="space-y-3 font-mono text-xs">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div>
-                  <label className="text-[10px] text-slate-400 uppercase block mb-1">
+                  <label className="text-[10px] text-zinc-400 uppercase block mb-1">
                     License Plate *
                   </label>
                   <input
@@ -190,18 +190,18 @@ export const HotCacheDrawer: React.FC<HotCacheDrawerProps> = ({
                     value={plateInput}
                     onChange={(e) => setPlateInput(e.target.value)}
                     placeholder="e.g. DL 03 CA 4821"
-                    className="w-full px-3 py-2 rounded bg-slate-900 border border-slate-700 text-yellow-400 font-bold focus:border-cyan-500 focus:outline-none uppercase"
+                    className="w-full px-3 py-2 rounded bg-black border border-zinc-800 text-yellow-400 font-bold focus:border-white focus:outline-none uppercase"
                   />
                 </div>
 
                 <div>
-                  <label className="text-[10px] text-slate-400 uppercase block mb-1">
+                  <label className="text-[10px] text-zinc-400 uppercase block mb-1">
                     Threat Priority *
                   </label>
                   <select
                     value={threatInput}
                     onChange={(e) => setThreatInput(e.target.value as any)}
-                    className="w-full px-3 py-2 rounded bg-slate-900 border border-slate-700 text-slate-200 focus:border-cyan-500 focus:outline-none"
+                    className="w-full px-3 py-2 rounded bg-black border border-zinc-800 text-zinc-200 focus:border-white focus:outline-none"
                   >
                     <option value="CRITICAL_RED">CRITICAL RED (Immediate Intercept)</option>
                     <option value="HIGH_AMBER">HIGH AMBER (Stolen / Wanted)</option>
@@ -210,13 +210,13 @@ export const HotCacheDrawer: React.FC<HotCacheDrawerProps> = ({
                 </div>
 
                 <div>
-                  <label className="text-[10px] text-slate-400 uppercase block mb-1">
+                  <label className="text-[10px] text-zinc-400 uppercase block mb-1">
                     Vehicle Type
                   </label>
                   <select
                     value={typeInput}
                     onChange={(e) => setTypeInput(e.target.value as any)}
-                    className="w-full px-3 py-2 rounded bg-slate-900 border border-slate-700 text-slate-200 focus:border-cyan-500 focus:outline-none"
+                    className="w-full px-3 py-2 rounded bg-black border border-zinc-800 text-zinc-200 focus:border-white focus:outline-none"
                   >
                     <option value="SUV">SUV</option>
                     <option value="Sedan">Sedan</option>
@@ -229,7 +229,7 @@ export const HotCacheDrawer: React.FC<HotCacheDrawerProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div>
-                  <label className="text-[10px] text-slate-400 uppercase block mb-1">
+                  <label className="text-[10px] text-zinc-400 uppercase block mb-1">
                     Make & Model
                   </label>
                   <input
@@ -237,12 +237,12 @@ export const HotCacheDrawer: React.FC<HotCacheDrawerProps> = ({
                     value={makeInput}
                     onChange={(e) => setMakeInput(e.target.value)}
                     placeholder="e.g. Tata Nexon EV"
-                    className="w-full px-3 py-2 rounded bg-slate-900 border border-slate-700 text-slate-200 focus:border-cyan-500 focus:outline-none"
+                    className="w-full px-3 py-2 rounded bg-black border border-zinc-800 text-zinc-200 focus:border-white focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="text-[10px] text-slate-400 uppercase block mb-1">
+                  <label className="text-[10px] text-zinc-400 uppercase block mb-1">
                     Color
                   </label>
                   <input
@@ -250,12 +250,12 @@ export const HotCacheDrawer: React.FC<HotCacheDrawerProps> = ({
                     value={colorInput}
                     onChange={(e) => setColorInput(e.target.value)}
                     placeholder="e.g. Flame Red"
-                    className="w-full px-3 py-2 rounded bg-slate-900 border border-slate-700 text-slate-200 focus:border-cyan-500 focus:outline-none"
+                    className="w-full px-3 py-2 rounded bg-black border border-zinc-800 text-zinc-200 focus:border-white focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="text-[10px] text-slate-400 uppercase block mb-1">
+                  <label className="text-[10px] text-zinc-400 uppercase block mb-1">
                     FIR / Warrant Case No.
                   </label>
                   <input
@@ -263,13 +263,13 @@ export const HotCacheDrawer: React.FC<HotCacheDrawerProps> = ({
                     value={firInput}
                     onChange={(e) => setFirInput(e.target.value)}
                     placeholder="e.g. FIR-2026/DL/4412"
-                    className="w-full px-3 py-2 rounded bg-slate-900 border border-slate-700 text-slate-200 focus:border-cyan-500 focus:outline-none"
+                    className="w-full px-3 py-2 rounded bg-black border border-zinc-800 text-zinc-200 focus:border-white focus:outline-none"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-[10px] text-slate-400 uppercase block mb-1">
+                <label className="text-[10px] text-zinc-400 uppercase block mb-1">
                   Reason for Flagging / Incident Details *
                 </label>
                 <input
@@ -278,14 +278,14 @@ export const HotCacheDrawer: React.FC<HotCacheDrawerProps> = ({
                   value={reasonInput}
                   onChange={(e) => setReasonInput(e.target.value)}
                   placeholder="e.g. Escaped toll barrier after hit-and-run on Ring Road"
-                  className="w-full px-3 py-2 rounded bg-slate-900 border border-slate-700 text-slate-200 focus:border-cyan-500 focus:outline-none"
+                  className="w-full px-3 py-2 rounded bg-black border border-zinc-800 text-zinc-200 focus:border-white focus:outline-none"
                 />
               </div>
 
               <div className="flex justify-end pt-1">
                 <button
                   type="submit"
-                  className="px-4 py-2 rounded bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold transition-all flex items-center gap-1.5 shadow-[0_0_15px_rgba(6,182,212,0.3)]"
+                  className="px-4 py-2 rounded bg-white hover:bg-zinc-200 text-zinc-950 font-bold transition-all flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,255,255,0.15)]"
                 >
                   <Zap className="w-4 h-4" />
                   <span>Hot-Load into RAM Cache</span>
@@ -296,9 +296,9 @@ export const HotCacheDrawer: React.FC<HotCacheDrawerProps> = ({
 
           {/* Active Cached Targets List */}
           <div className="space-y-2">
-            <h4 className="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider flex items-center justify-between">
+            <h4 className="text-xs font-mono font-bold text-zinc-300 uppercase tracking-wider flex items-center justify-between">
               <span>Active Cached Suspect Vehicles ({suspects.length} in Memory)</span>
-              <span className="text-[10px] text-slate-500">SYNCED ACROSS ALL 12 CAMERAS</span>
+              <span className="text-[10px] text-zinc-500">SYNCED ACROSS ALL 12 CAMERAS</span>
             </h4>
 
             <div className="space-y-2">
@@ -310,12 +310,12 @@ export const HotCacheDrawer: React.FC<HotCacheDrawerProps> = ({
                     className={`p-3.5 rounded-lg border transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 ${
                       isRed
                         ? "bg-rose-950/20 border-rose-500/40"
-                        : "bg-slate-900/60 border-slate-800"
+                        : "bg-zinc-900/40 border-zinc-800"
                     }`}
                   >
                     <div className="space-y-1 font-mono text-xs">
                       <div className="flex items-center gap-2">
-                        <span className="font-bold text-sm text-yellow-400 bg-slate-950 px-2 py-0.5 rounded border border-yellow-500/40">
+                        <span className="font-bold text-sm text-yellow-400 bg-black px-2 py-0.5 rounded border border-zinc-800">
                           {s.plateNumber}
                         </span>
                         <span
@@ -327,19 +327,19 @@ export const HotCacheDrawer: React.FC<HotCacheDrawerProps> = ({
                         >
                           {s.threatLevel.replace("_", " ")}
                         </span>
-                        <span className="text-slate-400 text-[11px] hidden sm:inline">
+                        <span className="text-zinc-400 text-[11px] hidden sm:inline">
                           {s.registeredMake} ({s.registeredColor})
                         </span>
                       </div>
 
-                      <div className="text-slate-200">{s.reason}</div>
+                      <div className="text-zinc-200">{s.reason}</div>
 
-                      <div className="text-[11px] text-slate-400 flex flex-wrap items-center gap-3 pt-0.5">
+                      <div className="text-[11px] text-zinc-400 flex flex-wrap items-center gap-3 pt-0.5">
                         <span>Case: {s.firNumber}</span>
                         <span>•</span>
                         <span>Loaded At: {s.addedAt}</span>
                         <span>•</span>
-                        <span className="text-cyan-400">Hits Today: {s.totalHits}</span>
+                        <span className="text-zinc-300">Hits Today: {s.totalHits}</span>
                         {s.lastInterceptedCamera && (
                           <>
                             <span>•</span>
@@ -357,7 +357,7 @@ export const HotCacheDrawer: React.FC<HotCacheDrawerProps> = ({
                           trackVehicle(s.plateNumber);
                           onClose();
                         }}
-                        className="px-3 py-1.5 rounded bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 text-xs font-mono border border-cyan-500/40 transition-colors flex items-center gap-1"
+                        className="px-3 py-1.5 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-mono border border-zinc-700 transition-colors flex items-center gap-1"
                       >
                         <Compass className="w-3.5 h-3.5" />
                         <span>Map</span>
@@ -366,7 +366,7 @@ export const HotCacheDrawer: React.FC<HotCacheDrawerProps> = ({
                       <button
                         onClick={() => handleRemoveSuspect(s.plateNumber)}
                         title="Evict Suspect from Cache (Apprehended)"
-                        className="p-1.5 rounded bg-slate-800 hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 transition-colors border border-slate-700"
+                        className="p-1.5 rounded bg-zinc-900 hover:bg-rose-500/20 text-zinc-400 hover:text-rose-400 transition-colors border border-zinc-800"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
@@ -379,13 +379,13 @@ export const HotCacheDrawer: React.FC<HotCacheDrawerProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="p-4 border-t border-slate-800 bg-slate-900/90 flex justify-between items-center text-xs font-mono text-slate-400">
+        <div className="p-4 border-t border-zinc-800 bg-zinc-900/60 flex justify-between items-center text-xs font-mono text-zinc-400">
           <div>
-            Cache Implementation: <span className="text-cyan-400">Hash Table + Redis In-Memory Pattern</span>
+            Cache Implementation: <span className="text-white font-medium">Hash Table + Redis In-Memory Pattern</span>
           </div>
           <button
             onClick={onClose}
-            className="px-4 py-2 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors"
+            className="px-4 py-2 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 transition-colors"
           >
             Close Drawer
           </button>

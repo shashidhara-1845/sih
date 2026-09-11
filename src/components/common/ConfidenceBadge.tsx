@@ -14,20 +14,20 @@ export const ConfidenceBadge: React.FC<ConfidenceBadgeProps> = ({
   showLabel = true,
 }) => {
   // Color styling based on score
-  let strokeColor = "#10b981";
-  let textColor = "text-emerald-400";
-  let badgeStyle = "bg-emerald-500/10 text-emerald-400 border-emerald-500/30";
+  let strokeColor = "#ffffff";
+  let textColor = "text-white";
+  let badgeStyle = "bg-white/[0.08] text-white border-white/20";
   let statusText = "VERIFIED MATCH";
 
   if (score < 65) {
-    strokeColor = "#f43f5e";
+    strokeColor = "#ef4444";
     textColor = "text-rose-400";
     badgeStyle = "bg-rose-500/10 text-rose-400 border-rose-500/30";
     statusText = "ANOMALY DETECTED";
   } else if (score < 85) {
-    strokeColor = "#f59e0b";
-    textColor = "text-amber-400";
-    badgeStyle = "bg-amber-500/10 text-amber-400 border-amber-500/30";
+    strokeColor = "#a1a1aa";
+    textColor = "text-zinc-300";
+    badgeStyle = "bg-zinc-800 text-zinc-300 border-zinc-700";
     statusText = "PROBABLE MATCH";
   }
 
@@ -73,7 +73,7 @@ export const ConfidenceBadge: React.FC<ConfidenceBadgeProps> = ({
 
       {showLabel && (
         <div className="flex flex-col">
-          <span className="text-[9px] uppercase font-mono tracking-wider text-slate-400">
+          <span className="text-[9px] uppercase font-mono tracking-wider text-zinc-400">
             Fusion Match
           </span>
           <span className={`text-[10px] font-semibold tracking-wide border px-1.5 py-0.5 rounded ${badgeStyle}`}>

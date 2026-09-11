@@ -62,13 +62,13 @@ export const LiveFeedView: React.FC = () => {
         <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
           {/* Search input with sleek glass design */}
           <div className="relative flex-1">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder="Search by license plate (e.g. DL 01 XY 9999), model, or camera ID..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-black/40 border border-white/[0.08] rounded-xl text-xs font-mono text-slate-100 placeholder-slate-500 focus:outline-none focus:border-cyan-500/80 focus:ring-1 focus:ring-cyan-500/50 transition-all"
+              className="w-full pl-10 pr-4 py-2.5 bg-zinc-950/80 border border-white/[0.08] rounded-xl text-xs font-mono text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-white focus:ring-1 focus:ring-white/20 transition-all"
             />
           </div>
 
@@ -79,15 +79,15 @@ export const LiveFeedView: React.FC = () => {
               className={`px-3.5 py-2.5 rounded-xl text-xs font-mono font-semibold flex items-center gap-1.5 transition-all border ${
                 flaggedOnly
                   ? "bg-rose-500/20 text-rose-300 border-rose-500/50 shadow-[0_0_15px_rgba(244,63,94,0.2)]"
-                  : "bg-slate-900/60 text-slate-400 border-white/[0.06] hover:text-slate-200"
+                  : "bg-zinc-950 text-zinc-400 border-white/[0.06] hover:text-zinc-200"
               }`}
             >
               <AlertOctagon className="w-3.5 h-3.5 text-rose-400" />
               <span>Flagged Only</span>
             </button>
 
-            <div className="hidden sm:flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-900/60 border border-white/[0.06] text-xs font-mono text-slate-300">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="hidden sm:flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-zinc-950 border border-white/[0.08] text-xs font-mono text-zinc-300">
+              <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
               <span>Live Feed ({filteredDetections.length} matches)</span>
             </div>
           </div>
@@ -97,8 +97,8 @@ export const LiveFeedView: React.FC = () => {
         <div className="flex flex-wrap items-center justify-between gap-3 pt-2.5 border-t border-white/[0.06]">
           {/* Vehicle Type Tabs */}
           <div className="flex flex-wrap items-center gap-1">
-            <span className="text-[10px] font-mono uppercase text-slate-400 mr-2 flex items-center gap-1">
-              <Layers className="w-3 h-3 text-cyan-400" />
+            <span className="text-[10px] font-mono uppercase text-zinc-400 mr-2 flex items-center gap-1">
+              <Layers className="w-3 h-3 text-white" />
               <span>Type:</span>
             </span>
             {vehicleTypes.map((t) => (
@@ -107,8 +107,8 @@ export const LiveFeedView: React.FC = () => {
                 onClick={() => setSelectedType(t)}
                 className={`px-2.5 py-1 rounded-lg text-xs font-mono transition-colors ${
                   selectedType === t
-                    ? "bg-cyan-500/15 text-cyan-300 border border-cyan-500/40 font-bold"
-                    : "text-slate-400 hover:text-slate-200 hover:bg-white/[0.04]"
+                    ? "bg-white text-zinc-950 border border-white font-bold shadow-sm"
+                    : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900"
                 }`}
               >
                 {t}
@@ -118,8 +118,8 @@ export const LiveFeedView: React.FC = () => {
 
           {/* Confidence Filter Tabs */}
           <div className="flex items-center gap-1">
-            <span className="text-[10px] font-mono uppercase text-slate-400 mr-2 flex items-center gap-1">
-              <SlidersHorizontal className="w-3 h-3 text-cyan-400" />
+            <span className="text-[10px] font-mono uppercase text-zinc-400 mr-2 flex items-center gap-1">
+              <SlidersHorizontal className="w-3 h-3 text-white" />
               <span>Confidence:</span>
             </span>
             {[
@@ -133,8 +133,8 @@ export const LiveFeedView: React.FC = () => {
                 onClick={() => setConfidenceFilter(cf.id)}
                 className={`px-2.5 py-1 rounded-lg text-[11px] font-mono transition-colors ${
                   confidenceFilter === cf.id
-                    ? "bg-slate-800 text-slate-100 border border-white/[0.12] font-bold"
-                    : "text-slate-400 hover:text-slate-300 hover:bg-white/[0.04]"
+                    ? "bg-zinc-800 text-white border border-white/20 font-bold"
+                    : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900"
                 }`}
               >
                 {cf.label}
@@ -145,22 +145,22 @@ export const LiveFeedView: React.FC = () => {
       </div>
 
       {/* Real-time Ticker Ribbon */}
-      <div className="flex items-center justify-between px-4 py-2 rounded-xl bg-slate-900/40 border border-white/[0.05] text-xs font-mono text-slate-400">
+      <div className="flex items-center justify-between px-4 py-2 rounded-xl bg-zinc-950/80 border border-zinc-800 text-xs font-mono text-zinc-400">
         <div className="flex items-center gap-2">
-          <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+          <Sparkles className="w-3.5 h-3.5 text-white" />
           <span>Surveillance grid: 12 high-definition AI optical nodes streaming</span>
         </div>
-        <div className="text-[11px] text-slate-400 hidden sm:block">
-          Click any card to open <span className="text-cyan-400 font-semibold">Forensic Fusion Inspector</span>
+        <div className="text-[11px] text-zinc-400 hidden sm:block">
+          Click any card to open <span className="text-white font-semibold">Forensic Fusion Inspector</span>
         </div>
       </div>
 
       {/* Detection Cards Grid */}
       {filteredDetections.length === 0 ? (
-        <div className="p-12 text-center rounded-2xl bg-slate-900/30 border border-white/[0.06] space-y-3">
-          <AlertOctagon className="w-8 h-8 text-slate-600 mx-auto" />
-          <div className="text-sm font-mono text-slate-300 font-bold">No Detections Found</div>
-          <p className="text-xs text-slate-400 font-mono">
+        <div className="p-12 text-center rounded-2xl bg-zinc-950/40 border border-zinc-800 space-y-3">
+          <AlertOctagon className="w-8 h-8 text-zinc-600 mx-auto" />
+          <div className="text-sm font-mono text-zinc-300 font-bold">No Detections Found</div>
+          <p className="text-xs text-zinc-400 font-mono">
             No vehicle observations matched your search or active filter combination.
           </p>
           <button
@@ -170,7 +170,7 @@ export const LiveFeedView: React.FC = () => {
               setConfidenceFilter("ALL");
               setFlaggedOnly(false);
             }}
-            className="mt-2 px-4 py-2 rounded-lg bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 text-xs font-mono hover:bg-cyan-500/25 transition-colors"
+            className="mt-2 px-4 py-2 rounded-lg bg-zinc-800 text-zinc-200 border border-zinc-700 text-xs font-mono hover:bg-zinc-700 transition-colors"
           >
             Reset All Filters
           </button>

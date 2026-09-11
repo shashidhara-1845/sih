@@ -36,33 +36,33 @@ export const TeleportCard: React.FC<TeleportCardProps> = ({
   };
 
   return (
-    <div className="bg-[#150f0b]/90 border border-amber-500/50 rounded-xl p-5 shadow-[0_0_25px_rgba(245,158,11,0.15)] space-y-4">
+    <div className="bg-white dark:bg-[#150f0b]/90 border border-amber-300 dark:border-amber-500/50 rounded-xl p-5 shadow-sm dark:shadow-[0_0_25px_rgba(245,158,11,0.15)] space-y-4 transition-colors duration-200">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-amber-500/30 pb-3">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-amber-200 dark:border-amber-500/30 pb-3">
         <div className="flex items-center gap-3">
-          <div className="p-2.5 rounded-lg bg-amber-500/20 text-amber-400 border border-amber-500/40 animate-pulse">
+          <div className="p-2.5 rounded-lg bg-amber-500/15 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-300 dark:border-amber-500/40 animate-pulse">
             <Zap className="w-5 h-5" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-500/50 text-[10px] font-mono font-bold">
+              <span className="px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-500/50 text-[10px] font-mono font-bold">
                 PHYSICS / KINEMATIC VIOLATION
               </span>
-              <span className="font-mono text-xs text-slate-400">{incident.id}</span>
+              <span className="font-mono text-xs text-zinc-500 dark:text-slate-400">{incident.id}</span>
             </div>
-            <h3 className="font-mono text-base font-bold text-slate-100 mt-0.5">
+            <h3 className="font-mono text-base font-bold text-zinc-900 dark:text-slate-100 mt-0.5">
               {incident.title}
             </h3>
           </div>
         </div>
 
         <div className="flex items-center gap-2 self-end sm:self-center">
-          <span className="font-mono text-xs text-slate-400">{incident.timestamp}</span>
+          <span className="font-mono text-xs text-zinc-500 dark:text-slate-400">{incident.timestamp}</span>
           <span
             className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase ${
               incident.status === "ACTIVE"
-                ? "bg-rose-500/20 text-rose-300 border border-rose-500/40"
-                : "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40"
+                ? "bg-rose-500/15 text-rose-700 border border-rose-300 dark:bg-rose-500/20 dark:text-rose-300 dark:border-rose-500/40"
+                : "bg-emerald-500/15 text-emerald-700 border border-emerald-300 dark:bg-emerald-500/20 dark:text-emerald-300 dark:border-emerald-500/40"
             }`}
           >
             {incident.status}
@@ -71,29 +71,29 @@ export const TeleportCard: React.FC<TeleportCardProps> = ({
       </div>
 
       {/* Synopsis */}
-      <div className="text-xs font-mono text-slate-300 bg-slate-950/60 p-3 rounded-lg border border-slate-800 leading-relaxed">
+      <div className="text-xs font-mono text-zinc-700 dark:text-slate-300 bg-zinc-50 dark:bg-slate-950/60 p-3 rounded-lg border border-zinc-200 dark:border-slate-800 leading-relaxed">
         {incident.summary}
       </div>
 
       {/* Impossible Velocity Breakdown Box */}
-      <div className="p-4 rounded-xl bg-amber-950/20 border border-amber-500/40 space-y-3">
+      <div className="p-4 rounded-xl bg-amber-50/70 dark:bg-amber-950/20 border border-amber-300 dark:border-amber-500/40 space-y-3">
         <div className="flex items-center justify-between text-xs font-mono">
-          <span className="text-amber-300 font-bold uppercase flex items-center gap-1.5">
+          <span className="text-amber-700 dark:text-amber-300 font-bold uppercase flex items-center gap-1.5">
             <Flame className="w-4 h-4 text-rose-500" />
             <span>Calculated Inter-Node Velocity</span>
           </span>
-          <span className="text-rose-400 font-black text-sm bg-slate-950 px-2.5 py-0.5 rounded border border-rose-500/40">
+          <span className="text-rose-600 dark:text-rose-400 font-black text-sm bg-white dark:bg-slate-950 px-2.5 py-0.5 rounded border border-rose-300 dark:border-rose-500/40 shadow-xs">
             {incident.calculatedVelocityKmh} KM/H
           </span>
         </div>
 
         {/* Visual Velocity Gauge comparison */}
         <div className="space-y-1 font-mono text-xs">
-          <div className="flex justify-between text-[11px] text-slate-400">
+          <div className="flex justify-between text-[11px] text-zinc-600 dark:text-slate-400">
             <span>Speed Limit: 120 km/h</span>
-            <span className="text-rose-400 font-bold">524% EXCEEDED (SUPERSONIC PROBABILITY)</span>
+            <span className="text-rose-600 dark:text-rose-400 font-bold">524% EXCEEDED (SUPERSONIC PROBABILITY)</span>
           </div>
-          <div className="h-3 rounded-full bg-slate-900 overflow-hidden relative">
+          <div className="h-3 rounded-full bg-zinc-200 dark:bg-slate-900 overflow-hidden relative">
             {/* Permissible range mark */}
             <div className="absolute top-0 bottom-0 left-0 w-1/5 bg-emerald-500/50 border-r border-emerald-400" />
             {/* Speeding bar */}
@@ -102,48 +102,48 @@ export const TeleportCard: React.FC<TeleportCardProps> = ({
         </div>
 
         {/* Node A to Node B Hop details */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2 border-t border-amber-500/20 font-mono text-xs">
-          <div className="p-2 rounded bg-black border border-zinc-800">
-            <span className="text-[10px] text-zinc-400">Origin Node (10:15 AM)</span>
-            <div className="text-zinc-100 font-bold mt-0.5 truncate">{sighting1?.cameraName}</div>
-            <div className="text-zinc-400 text-[10px] mt-0.5">{sighting1?.cameraId}</div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2 border-t border-amber-200 dark:border-amber-500/20 font-mono text-xs">
+          <div className="p-2 rounded bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800">
+            <span className="text-[10px] text-zinc-500 dark:text-zinc-400">Origin Node (10:15 AM)</span>
+            <div className="text-zinc-900 dark:text-zinc-100 font-bold mt-0.5 truncate">{sighting1?.cameraName}</div>
+            <div className="text-zinc-500 dark:text-zinc-400 text-[10px] mt-0.5">{sighting1?.cameraId}</div>
           </div>
 
-          <div className="p-2 rounded bg-black border border-zinc-800">
-            <span className="text-[10px] text-zinc-400">Destination Node (10:20 AM)</span>
-            <div className="text-zinc-100 font-bold mt-0.5 truncate">{sighting2?.cameraName}</div>
-            <div className="text-zinc-400 text-[10px] mt-0.5">{sighting2?.cameraId}</div>
+          <div className="p-2 rounded bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800">
+            <span className="text-[10px] text-zinc-500 dark:text-zinc-400">Destination Node (10:20 AM)</span>
+            <div className="text-zinc-900 dark:text-zinc-100 font-bold mt-0.5 truncate">{sighting2?.cameraName}</div>
+            <div className="text-zinc-500 dark:text-zinc-400 text-[10px] mt-0.5">{sighting2?.cameraId}</div>
           </div>
 
-          <div className="p-2 rounded bg-black border border-zinc-800 text-center">
-            <span className="text-[10px] text-zinc-400">Delta Parameters</span>
-            <div className="text-yellow-400 font-bold mt-0.5">
+          <div className="p-2 rounded bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 text-center">
+            <span className="text-[10px] text-zinc-500 dark:text-zinc-400">Delta Parameters</span>
+            <div className="text-zinc-900 dark:text-yellow-400 font-bold mt-0.5">
               {incident.distanceKm} km in {incident.timeDeltaMin} mins
             </div>
-            <div className="text-rose-400 text-[10px] font-bold mt-0.5">PHYSICAL IMPOSSIBILITY</div>
+            <div className="text-rose-600 dark:text-rose-400 text-[10px] font-bold mt-0.5">PHYSICAL IMPOSSIBILITY</div>
           </div>
         </div>
       </div>
 
       {/* Action Footer */}
-      <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-zinc-800">
-        <div className="text-xs font-mono text-zinc-400">
-          Target Plate: <span className="text-yellow-400 font-bold">{incident.plateNumber}</span> • Patrol:{" "}
-          <span className="text-zinc-200 font-medium">{incident.assignedUnit || "Expressway Flying Squad"}</span>
+      <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-zinc-200 dark:border-zinc-800">
+        <div className="text-xs font-mono text-zinc-600 dark:text-zinc-400">
+          Target Plate: <span className="text-zinc-900 dark:text-yellow-400 font-bold">{incident.plateNumber}</span> • Patrol:{" "}
+          <span className="text-zinc-800 dark:text-zinc-200 font-medium">{incident.assignedUnit || "Expressway Flying Squad"}</span>
         </div>
 
         <div className="flex items-center gap-2">
           <button
             onClick={() => onOpenReport(incident)}
-            className="px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-200 text-xs font-mono border border-zinc-800 transition-colors flex items-center gap-1.5"
+            className="px-3 py-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 text-xs font-mono border border-zinc-200 dark:border-zinc-800 transition-colors flex items-center gap-1.5"
           >
-            <FileText className="w-3.5 h-3.5 text-white" />
+            <FileText className="w-3.5 h-3.5 text-zinc-900 dark:text-white" />
             <span>Generate Dossier</span>
           </button>
 
           <button
             onClick={() => trackVehicle(incident.plateNumber)}
-            className="px-3 py-1.5 rounded-lg bg-white hover:bg-zinc-200 text-zinc-950 font-bold text-xs font-mono transition-colors flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,255,255,0.15)]"
+            className="px-3 py-1.5 rounded-lg bg-zinc-950 text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-zinc-950 font-bold text-xs font-mono transition-colors flex items-center gap-1.5 shadow-xs dark:shadow-[0_0_15px_rgba(255,255,255,0.15)]"
           >
             <span>Plot Trajectory Jump</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -155,7 +155,7 @@ export const TeleportCard: React.FC<TeleportCardProps> = ({
             className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${
               acknowledged
                 ? "bg-emerald-600 text-white cursor-default"
-                : "bg-zinc-200 hover:bg-white text-zinc-950 font-black"
+                : "bg-zinc-950 hover:bg-zinc-800 text-white dark:bg-zinc-200 dark:hover:bg-white dark:text-zinc-950 font-black"
             }`}
           >
             {acknowledged ? "ACKNOWLEDGED ✓" : "ACKNOWLEDGE ALERT"}

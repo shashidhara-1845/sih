@@ -21,7 +21,7 @@ export default function RootLayout({
           crossOrigin=""
         />
       </head>
-      <body className="min-h-full bg-black text-zinc-100 font-sans antialiased selection:bg-white selection:text-zinc-950 overflow-x-hidden">
+      <body className="min-h-full bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100 font-sans antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-zinc-950 overflow-x-hidden transition-colors duration-200">
         {children}
       </body>
     </html>

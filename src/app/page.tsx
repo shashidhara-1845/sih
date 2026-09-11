@@ -22,7 +22,7 @@ function DashboardContent() {
   } = useSimulation();
 
   return (
-    <div className="flex h-screen overflow-hidden bg-[#080d1a]">
+    <div className="flex h-screen overflow-hidden bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100 transition-colors duration-200">
       {/* Emergency Red Alert Top Banner */}
       <RedAlertBanner alert={activeRedAlert} onDismiss={dismissRedAlert} />
 

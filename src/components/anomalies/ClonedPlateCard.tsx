@@ -36,33 +36,33 @@ export const ClonedPlateCard: React.FC<ClonedPlateCardProps> = ({
   };
 
   return (
-    <div className="bg-[#12070d]/90 border border-rose-500/40 rounded-2xl p-5 shadow-[0_0_35px_rgba(244,63,94,0.15)] space-y-4 backdrop-blur-xl">
+    <div className="bg-white dark:bg-[#12070d]/90 border border-rose-300 dark:border-rose-500/40 rounded-2xl p-5 shadow-sm dark:shadow-[0_0_35px_rgba(244,63,94,0.15)] space-y-4 backdrop-blur-xl transition-colors duration-200">
       {/* Alert Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-rose-500/20 pb-4">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-rose-200 dark:border-rose-500/20 pb-4">
         <div className="flex items-center gap-3.5">
-          <div className="p-3 rounded-xl bg-rose-500/20 text-rose-400 border border-rose-500/40 animate-pulse">
+          <div className="p-3 rounded-xl bg-rose-500/15 dark:bg-rose-500/20 text-rose-600 dark:text-rose-400 border border-rose-300 dark:border-rose-500/40 animate-pulse">
             <ShieldAlert className="w-6 h-6" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-500/50 text-[10px] font-mono font-bold">
+              <span className="px-2 py-0.5 rounded bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 border border-rose-300 dark:border-rose-500/50 text-[10px] font-mono font-bold">
                 CRITICAL FORENSIC ALARM
               </span>
-              <span className="font-mono text-xs text-slate-400">{incident.id}</span>
+              <span className="font-mono text-xs text-zinc-500 dark:text-slate-400">{incident.id}</span>
             </div>
-            <h3 className="font-mono text-base font-bold text-slate-100 mt-1">
+            <h3 className="font-mono text-base font-bold text-zinc-900 dark:text-slate-100 mt-1">
               {incident.title}
             </h3>
           </div>
         </div>
 
         <div className="flex items-center gap-2 self-end sm:self-center">
-          <span className="font-mono text-xs text-slate-400">{incident.timestamp}</span>
+          <span className="font-mono text-xs text-zinc-500 dark:text-slate-400">{incident.timestamp}</span>
           <span
             className={`px-2.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase ${
               incident.status === "ACTIVE"
-                ? "bg-rose-500/20 text-rose-300 border border-rose-500/40"
-                : "bg-amber-500/20 text-amber-300 border border-amber-500/40"
+                ? "bg-rose-500/15 text-rose-700 border border-rose-300 dark:bg-rose-500/20 dark:text-rose-300 dark:border-rose-500/40"
+                : "bg-amber-500/15 text-amber-700 border border-amber-300 dark:bg-amber-500/20 dark:text-amber-300 dark:border-amber-500/40"
             }`}
           >
             {incident.status}
@@ -71,15 +71,15 @@ export const ClonedPlateCard: React.FC<ClonedPlateCardProps> = ({
       </div>
 
       {/* Forensic Explanation Synopsis */}
-      <div className="text-xs font-mono text-slate-300 bg-black/40 p-3.5 rounded-xl border border-white/[0.06] leading-relaxed">
+      <div className="text-xs font-mono text-zinc-700 dark:text-slate-300 bg-zinc-50 dark:bg-black/40 p-3.5 rounded-xl border border-zinc-200 dark:border-white/[0.06] leading-relaxed">
         {incident.summary}
       </div>
 
       {/* Side-by-Side Sighting Comparison */}
       <div className="space-y-2.5">
-        <div className="text-[11px] font-mono uppercase text-slate-400 font-bold tracking-wider flex items-center justify-between">
+        <div className="text-[11px] font-mono uppercase text-zinc-600 dark:text-slate-400 font-bold tracking-wider flex items-center justify-between">
           <span>Concurrent Sighting Visual Evidence</span>
-          <div className="flex items-center gap-1.5 text-rose-400">
+          <div className="flex items-center gap-1.5 text-rose-600 dark:text-rose-400">
             <span>IDENTICAL STRING:</span>
             <span className="font-bold">{incident.plateNumber}</span>
           </div>
@@ -87,12 +87,12 @@ export const ClonedPlateCard: React.FC<ClonedPlateCardProps> = ({
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Sighting A (Legitimate / Registered Profile) */}
-          <div className="p-4 rounded-xl bg-zinc-950/60 border border-zinc-800 space-y-3">
+          <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950/60 border border-zinc-200 dark:border-zinc-800 space-y-3">
             <div className="flex items-center justify-between">
-              <span className="px-2 py-0.5 rounded bg-zinc-800 text-zinc-200 border border-zinc-700 text-[10px] font-mono font-bold">
+              <span className="px-2 py-0.5 rounded bg-zinc-200 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200 border border-zinc-300 dark:border-zinc-700 text-[10px] font-mono font-bold">
                 SIGHTING 1 (RTO LEDGER MATCH)
               </span>
-              <span className="text-xs font-mono text-yellow-400 font-bold">{sightingA?.timestamp}</span>
+              <span className="text-xs font-mono text-zinc-900 dark:text-yellow-400 font-bold">{sightingA?.timestamp}</span>
             </div>
 
             {sightingA && (
@@ -109,31 +109,31 @@ export const ClonedPlateCard: React.FC<ClonedPlateCardProps> = ({
 
             <div className="space-y-1.5 text-xs font-mono pt-1">
               <div className="flex items-center justify-between">
-                <span className="text-zinc-400">Observed Make:</span>
-                <span className="text-zinc-100 font-semibold">{sightingA?.makeModel}</span>
+                <span className="text-zinc-500 dark:text-zinc-400">Observed Make:</span>
+                <span className="text-zinc-900 dark:text-zinc-100 font-semibold">{sightingA?.makeModel}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-zinc-400">Visual Body:</span>
-                <span className="text-emerald-400 font-semibold">{sightingA?.vehicleType}</span>
+                <span className="text-zinc-500 dark:text-zinc-400">Visual Body:</span>
+                <span className="text-emerald-600 dark:text-emerald-400 font-semibold">{sightingA?.vehicleType}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-zinc-400">Vehicle Color:</span>
-                <span className="text-zinc-200 font-semibold">{sightingA?.color}</span>
+                <span className="text-zinc-500 dark:text-zinc-400">Vehicle Color:</span>
+                <span className="text-zinc-800 dark:text-zinc-200 font-semibold">{sightingA?.color}</span>
               </div>
-              <div className="flex items-center justify-between pt-1 border-t border-zinc-800 text-[11px]">
-                <span className="text-zinc-400">Camera Node:</span>
-                <span className="text-zinc-200 truncate max-w-[190px]">{sightingA?.cameraName}</span>
+              <div className="flex items-center justify-between pt-1 border-t border-zinc-200 dark:border-zinc-800 text-[11px]">
+                <span className="text-zinc-500 dark:text-zinc-400">Camera Node:</span>
+                <span className="text-zinc-800 dark:text-zinc-200 truncate max-w-[190px]">{sightingA?.cameraName}</span>
               </div>
             </div>
           </div>
 
           {/* Sighting B (Counterfeit / Cloned Plate Sighting) */}
-          <div className="p-4 rounded-xl bg-rose-950/20 border border-rose-500/50 space-y-3">
+          <div className="p-4 rounded-xl bg-rose-50/60 dark:bg-rose-950/20 border border-rose-300 dark:border-rose-500/50 space-y-3">
             <div className="flex items-center justify-between">
-              <span className="px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-500/40 text-[10px] font-mono font-bold animate-pulse">
+              <span className="px-2 py-0.5 rounded bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 border border-rose-300 dark:border-rose-500/40 text-[10px] font-mono font-bold animate-pulse">
                 SIGHTING 2 (CLONED / FAKE)
               </span>
-              <span className="text-xs font-mono text-yellow-400 font-bold">{sightingB?.timestamp}</span>
+              <span className="text-xs font-mono text-zinc-900 dark:text-yellow-400 font-bold">{sightingB?.timestamp}</span>
             </div>
 
             {sightingB && (
@@ -150,20 +150,20 @@ export const ClonedPlateCard: React.FC<ClonedPlateCardProps> = ({
 
             <div className="space-y-1.5 text-xs font-mono pt-1">
               <div className="flex items-center justify-between">
-                <span className="text-zinc-400">Observed Make:</span>
-                <span className="text-rose-300 font-bold">{sightingB?.makeModel}</span>
+                <span className="text-zinc-500 dark:text-zinc-400">Observed Make:</span>
+                <span className="text-rose-700 dark:text-rose-300 font-bold">{sightingB?.makeModel}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-zinc-400">Visual Body:</span>
-                <span className="text-rose-400 font-bold">{sightingB?.vehicleType} (MISMATCH!)</span>
+                <span className="text-zinc-500 dark:text-zinc-400">Visual Body:</span>
+                <span className="text-rose-600 dark:text-rose-400 font-bold">{sightingB?.vehicleType} (MISMATCH!)</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-zinc-400">Vehicle Color:</span>
-                <span className="text-rose-400 font-bold">{sightingB?.color} (MISMATCH!)</span>
+                <span className="text-zinc-500 dark:text-zinc-400">Vehicle Color:</span>
+                <span className="text-rose-600 dark:text-rose-400 font-bold">{sightingB?.color} (MISMATCH!)</span>
               </div>
-              <div className="flex items-center justify-between pt-1 border-t border-rose-500/20 text-[11px]">
-                <span className="text-zinc-400">Camera Node:</span>
-                <span className="text-rose-300 truncate max-w-[190px]">{sightingB?.cameraName}</span>
+              <div className="flex items-center justify-between pt-1 border-t border-rose-200 dark:border-rose-500/20 text-[11px]">
+                <span className="text-zinc-500 dark:text-zinc-400">Camera Node:</span>
+                <span className="text-rose-700 dark:text-rose-300 truncate max-w-[190px]">{sightingB?.cameraName}</span>
               </div>
             </div>
           </div>
@@ -171,44 +171,44 @@ export const ClonedPlateCard: React.FC<ClonedPlateCardProps> = ({
       </div>
 
       {/* Probabilistic AI Proof Matrix */}
-      <div className="p-3.5 rounded-xl bg-black/60 border border-zinc-800 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs font-mono">
+      <div className="p-3.5 rounded-xl bg-zinc-50 dark:bg-black/60 border border-zinc-200 dark:border-zinc-800 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs font-mono">
         <div>
-          <div className="text-[10px] text-zinc-400 uppercase">OCR Match</div>
-          <div className="text-emerald-400 font-bold mt-0.5">100.0% (Identical)</div>
+          <div className="text-[10px] text-zinc-500 dark:text-zinc-400 uppercase">OCR Match</div>
+          <div className="text-emerald-600 dark:text-emerald-400 font-bold mt-0.5">100.0% (Identical)</div>
         </div>
         <div>
-          <div className="text-[10px] text-zinc-400 uppercase">OSNet Re-ID Dist.</div>
-          <div className="text-rose-400 font-bold mt-0.5">0.89 (Divergent)</div>
+          <div className="text-[10px] text-zinc-500 dark:text-zinc-400 uppercase">OSNet Re-ID Dist.</div>
+          <div className="text-rose-600 dark:text-rose-400 font-bold mt-0.5">0.89 (Divergent)</div>
         </div>
         <div>
-          <div className="text-[10px] text-zinc-400 uppercase">Color Similarity</div>
-          <div className="text-rose-400 font-bold mt-0.5">18.4% (Different)</div>
+          <div className="text-[10px] text-zinc-500 dark:text-zinc-400 uppercase">Color Similarity</div>
+          <div className="text-rose-600 dark:text-rose-400 font-bold mt-0.5">18.4% (Different)</div>
         </div>
         <div>
-          <div className="text-[10px] text-zinc-400 uppercase">Clone Probability</div>
-          <div className="text-rose-400 font-black mt-0.5">99.6% (CONFIRMED)</div>
+          <div className="text-[10px] text-zinc-500 dark:text-zinc-400 uppercase">Clone Probability</div>
+          <div className="text-rose-600 dark:text-rose-400 font-black mt-0.5">99.6% (CONFIRMED)</div>
         </div>
       </div>
 
       {/* Action Footer */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-zinc-800">
-        <div className="text-xs font-mono text-zinc-400">
+      <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-zinc-200 dark:border-zinc-800">
+        <div className="text-xs font-mono text-zinc-600 dark:text-zinc-400">
           Assigned Response Unit:{" "}
-          <span className="text-zinc-200 font-semibold">{incident.assignedUnit || "PCR-Delta 14 Interceptor"}</span>
+          <span className="text-zinc-900 dark:text-zinc-200 font-semibold">{incident.assignedUnit || "PCR-Delta 14 Interceptor"}</span>
         </div>
 
         <div className="flex items-center gap-2.5">
           <button
             onClick={() => onOpenReport(incident)}
-            className="px-3.5 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-200 text-xs font-mono border border-zinc-800 transition-colors flex items-center gap-1.5"
+            className="px-3.5 py-2 rounded-lg bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 text-xs font-mono border border-zinc-200 dark:border-zinc-800 transition-colors flex items-center gap-1.5"
           >
-            <FileText className="w-3.5 h-3.5 text-white" />
+            <FileText className="w-3.5 h-3.5 text-zinc-900 dark:text-white" />
             <span>Generate FIR Dossier</span>
           </button>
 
           <button
             onClick={() => trackVehicle(incident.plateNumber)}
-            className="px-3.5 py-2 rounded-lg bg-white text-zinc-950 hover:bg-zinc-200 text-xs font-mono font-bold transition-colors flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,255,255,0.15)]"
+            className="px-3.5 py-2 rounded-lg bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 text-xs font-mono font-bold transition-colors flex items-center gap-1.5 shadow-xs dark:shadow-[0_0_15px_rgba(255,255,255,0.15)]"
           >
             <span>Plot Map Trajectory</span>
             <ArrowRight className="w-3.5 h-3.5" />

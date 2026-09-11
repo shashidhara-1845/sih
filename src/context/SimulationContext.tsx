@@ -34,11 +34,15 @@ interface SimulationContextType {
   dismissRedAlert: () => void;
   isHotCacheDrawerOpen: boolean;
   setIsHotCacheDrawerOpen: (open: boolean) => void;
+  theme: "dark" | "light";
+  setTheme: (t: "dark" | "light") => void;
+  toggleTheme: () => void;
 }
 
 const SimulationContext = createContext<SimulationContextType | undefined>(undefined);
 
 export function SimulationProvider({ children }: { children: React.ReactNode }) {
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [isSimulating, setIsSimulating] = useState<boolean>(true);
   const [simulationSpeed, setSimulationSpeed] = useState<number>(1);
   const [detections, setDetections] = useState<VehicleDetection[]>(INITIAL_DETECTIONS);
@@ -54,6 +58,38 @@ export function SimulationProvider({ children }: { children: React.ReactNode }) 
   } | null>(null);
   const [isHotCacheDrawerOpen, setIsHotCacheDrawerOpen] = useState<boolean>(false);
 
+  // Initialize theme from localStorage on client
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("sentinel_theme") as "dark" | "light" | null;
+      if (saved) {
+        setTheme(saved);
+      }
+    } catch {}
+  }, []);
+
+  // Sync theme with HTML class and body
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      const root = document.documentElement;
+      if (theme === "dark") {
+        root.classList.add("dark");
+        root.classList.remove("light");
+        document.body.style.backgroundColor = "#000000";
+        document.body.style.color = "#f4f4f5";
+      } else {
+        root.classList.remove("dark");
+        root.classList.add("light");
+        document.body.style.backgroundColor = "#f8fafc";
+        document.body.style.color = "#09090b";
+      }
+      try {
+        localStorage.setItem("sentinel_theme", theme);
+      } catch {}
+    }
+  }, [theme]);
+
+  const toggleTheme = () => setTheme((prev) => (prev === "dark" ? "light" : "dark"));
   const toggleSimulation = () => setIsSimulating((prev) => !prev);
   const dismissRedAlert = () => setActiveRedAlert(null);
 
@@ -344,6 +380,9 @@ export function SimulationProvider({ children }: { children: React.ReactNode }) 
         dismissRedAlert,
         isHotCacheDrawerOpen,
         setIsHotCacheDrawerOpen,
+        theme,
+        setTheme,
+        toggleTheme,
       }}
     >
       {children}
